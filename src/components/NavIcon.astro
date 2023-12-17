@@ -1,0 +1,13 @@
+---
+interface Props {
+    path: string,
+}
+
+const { path } = Astro.props
+---
+
+<li>
+    <a href={path} class="w-full">
+        <slot/>
+    </a>
+</li>
