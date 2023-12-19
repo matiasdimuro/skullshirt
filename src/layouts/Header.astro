@@ -1,11 +1,10 @@
 ---
-import Logo from "../components/Logo.astro";
-import Navbar from "../components/Navbar.astro";
-import ShowHideNavButton from "../components/ShowHideNavButton.astro";
+import Logo from "../components/header/Logo.astro";
+import Navbar from "../components/header/Navbar.jsx";
+import ShowHideNavButton from "../components/header/ShowHideNavButton.jsx"
 ---
-<header class="[grid-area:header] py-5 px-10 flex justify-between items-center ">
+<header class="relative [grid-area:header] py-5 px-10 flex justify-between items-center ">
     <Logo />
-    <Navbar />
-    <ShowHideNavButton />
+    <Navbar client:load />
+    <ShowHideNavButton client:visible />
 </header>
-

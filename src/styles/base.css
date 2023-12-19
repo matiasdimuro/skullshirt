@@ -69,6 +69,7 @@ a, p {
 /* Works on Chrome, Safari and Edge */
 body {
     scrollbar-width: thin;
+    overflow-x: hidden;
 }
 body::-webkit-scrollbar {
     width: 10px; /* Ancho de la scrollbar */

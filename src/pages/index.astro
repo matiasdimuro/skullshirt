@@ -1,9 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getProductsFromService } from '../libs/ProductsService'
+
+const products = await getProductsFromService()
 ---
 
 <Layout title="Skullshirt">
-	<main class="[grid-area:main]">
-		main
+	<main class="[grid-area:main] flex">
+		<aside class="w-[300px]">
+			Filter bar
+		</aside>
+		<section class="">
+			{
+				products.map(product => <h1>{product.name}</h1>)
+			}
+		</section>
 	</main>
 </Layout>

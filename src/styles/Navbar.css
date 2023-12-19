@@ -1,0 +1,9 @@
+#Header_NavLinkContainer::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #8b8b8b;
+}
