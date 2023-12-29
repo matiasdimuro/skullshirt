@@ -1,0 +1,26 @@
+---
+interface Props {
+    ID: string,
+    name: string,
+    category: string,
+    price: number,
+    image: string
+}
+
+const { ID, name, category, price, image } = Astro.props
+---
+
+<div data-id={ID} class="w-full max-w-[350px]">
+    <a class="w-full" href={`/productDetail/${ID}`}>
+        <picture>
+            <img 
+            alt=`${name}` class="w-full min-h-[350px] max-h-[400px]"
+            src={image} />
+        </picture>
+        <div class="flex justify-between items-center mt-3">
+            <p class="font-bold">{name}</p>
+            <p class="h-fit px-3 bg-secondary_light rounded-full font-bold text-sm">{category}</p>
+        </div>
+        <p>${price}</p>
+    </a>
+</div>

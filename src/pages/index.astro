@@ -1,18 +1,40 @@
 ---
+import ProductCard from '../components/ProductCard.astro';
+import ProductFilters from '../components/ProductFilters.jsx';
+import { getProductsFromService, getCategoriesFromService } from '../libs/ProductsService'
+import type { IProductPreview } from "../types/interfaces/IProduct";
+import type IProductsFilters from "../types/interfaces/IProductsFilters";
 import Layout from '../layouts/Layout.astro';
-import { getProductsFromService } from '../libs/ProductsService'
 
-const products = await getProductsFromService()
+const queryParams: IProductsFilters  = {
+	type: Astro.url.searchParams.get('type') || undefined
+}
+const categoriesFromService = await getCategoriesFromService() || []
+const categoriesForQuery = categoriesFromService
+	.filter(category => queryParams.type?.includes(category.name.toLowerCase()))
+	.map(category => category._id)
+	.join(",")
+queryParams.type = categoriesForQuery
+
+const products = await getProductsFromService(queryParams)
 ---
 
 <Layout title="Skullshirt">
 	<main class="[grid-area:main] flex">
-		<aside class="w-[300px]">
-			Filter bar
-		</aside>
-		<section class="">
+		<ProductFilters categories={categoriesFromService} client:visible />
+		<section class="
+			flex-grow px-10 pb-10 
+			grid gap-10 place-items-center 
+			grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
 			{
-				products.map(product => <h1>{product.name}</h1>)
+				products.map((product: IProductPreview) => (
+					<ProductCard 
+						ID={product._id} 
+						name={product.name} 
+						category={product.category} 
+						price={product.price}
+						image={product.image} />
+				))
 			}
 		</section>
 	</main>
