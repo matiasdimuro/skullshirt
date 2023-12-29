@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react"
 import { useAppStore } from "../../store/AppStore"
 
-interface Props {
-	label: string,
-	query: string
-}
-
-function CustomCheckbox({ label, query }: Props) {
+function CustomCheckbox({ label, query }) {
 
 	const [ isSelected, setIsSelected ] = useState(false)
     const { filtersQuery, addFilterQuery, removeFilterQuery } = useAppStore((state) => state)
