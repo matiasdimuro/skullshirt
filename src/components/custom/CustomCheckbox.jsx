@@ -11,7 +11,7 @@ function CustomCheckbox({ label, query }) {
 	}
 	
 	useEffect(() => {
-		console.log(`Checkbox ${label}: ${isSelected}`);
+		// console.log(`Checkbox ${label}: ${isSelected}`);
 		isSelected 
 			? addFilterQuery(filtersQuery, query) 
 			: removeFilterQuery(query, filtersQuery);

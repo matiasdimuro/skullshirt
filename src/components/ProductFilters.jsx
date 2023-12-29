@@ -24,7 +24,7 @@ function ProductFilters({ categories }) {
                 // console.log(`News params:`, filtersQuery);
                 searchParams.delete('type')
                 searchParams.append('type', filtersQuery.join(","))
-                console.log(`New query:`, searchParams.get('type'));
+                // console.log(`New query:`, searchParams.get('type'));
                 window.location.search = searchParams
             }
         }
