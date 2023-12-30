@@ -18,5 +18,5 @@ export const useAppStore = create((set) => ({
             filtersQuery: newFiltersQuery
         })
     },
-    setFiltersQuery: (filtersQuery) => set({ filtersQuery })
+    setFiltersQuery: (filtersQuery) => set({ filtersQuery }),
 }))

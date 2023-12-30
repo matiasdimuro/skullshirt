@@ -1,0 +1,37 @@
+---
+import type { IProductEntity } from '../../types/interfaces/IProduct';
+import { getProductByIdFromService } from '../../libs/ProductsService';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// export async function getStaticPaths() {
+// 	const products = await getProductsFromService({ type: '' })
+// 	const productDetailViews = products.map(product => ({
+// 		params: {
+// 			Product_ID: product._id
+// 		}
+// 	}))
+// 	return productDetailViews
+// }
+
+const { Product_ID = '' } = Astro.params
+
+const productData = await getProductByIdFromService(Product_ID) as IProductEntity
+---
+
+<Layout title="Skullshirt">
+	<main class="[grid-area:main]">
+		<p>ID: {Product_ID}</p>
+		<p>Name: {productData.name}</p>
+		<p>Description: {productData.description}</p>
+		<p>Price: {productData.price}</p>
+		<p>Currency: {productData.currency}</p>
+		<p>Category: {productData.category}</p>
+		<Image 
+			src={productData.image} alt="Product image" 
+			width={400} height={400} />
+		<!-- <img 
+			src={productData.image} alt="Product image" 
+			width="300" height="400"> -->
+	</main>
+</Layout>
