@@ -36,8 +36,8 @@ function Navbar() {
                         relative ms-5 mt-[80px] sm:ms-0 sm:mt-0 
                         flex gap-3 flex-col sm:flex-row justify-center
                     ">
-                    <NavLink label="Administrate" path="/admin">Admin</NavLink>
-                    <NavLink label="Shop" path="/">Tienda</NavLink>
+                    <NavLink label="Administrar" path="/admin"></NavLink>
+                    <NavLink label="Tienda" path="/"></NavLink>
                 </ul>
                 <div className="
                     hidden sm:inline-block w-[2px] h-[20px] mx-5 

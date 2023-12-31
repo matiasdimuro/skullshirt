@@ -1,5 +1,6 @@
 import CustomCheckbox from "./custom/CustomCheckbox"
 import { useAppStore } from "../store/AppStore"
+import Button from "./custom/Button";
 
 function ProductFilters({ categories }) {
     const { filtersQuery } = useAppStore(state => state)   
@@ -49,12 +50,13 @@ function ProductFilters({ categories }) {
                 </div>
             </div>
 
-            <button type="button" className="
-                w-full px-4 py-2 bg-secondary_light rounded-full
-                hover:bg-secondary
-            " onClick={handleFilter}>
+            <Button text="Filter" full={true} handleClick={handleFilter} />
+            {/* <button 
+                type="button" 
+                onClick={handleFilter}
+                className={`px-10 py-2.5 rounded-lg bg-secondary_light text-grey_dark hover:bg-secondary_light focus:ring-2 focus:ring-secondary focus:outline-none font-medium text-sm w-full`}>
                 Filtrar
-            </button>
+            </button> */}
             
         </aside>
     )

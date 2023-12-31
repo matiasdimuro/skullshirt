@@ -14,7 +14,7 @@ const { ID, name, category, price, image } = Astro.props
     <a class="w-full" href={`/productDetail/${ID}`}>
         <picture>
             <img 
-            alt=`${name}` class="w-full min-h-[350px] max-h-[400px]"
+            alt=`${name}` class="w-full min-h-[350px] max-h-[400px] shadow-md"
             src={image} />
         </picture>
         <div class="flex justify-between items-center mt-3">
